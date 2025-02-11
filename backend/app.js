@@ -12,7 +12,7 @@ app.use(cors(
   CORS({
     origin:"https://gym-app-i3sc.vercel.app",
     methods: ["POST"],
-   
+   credentials: true,
   })
 ));
 
