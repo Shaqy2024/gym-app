@@ -10,7 +10,7 @@ config({ path: "./config.env" });
 
 app.use(cors(
   {
-    origin: ['https://gym-app-i3sc-i8k3gfh8c-sakibs-projects-b9aac051.vercel.app'],
+    origin: ['https://gym-app-i3sc.vercel.app/'],
     methods: ["POST"],
     credentials: true,
   }
