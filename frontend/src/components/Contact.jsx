@@ -15,6 +15,7 @@ const Contact = () => {
     try {
       const { data } = await axios.post(
         "https://gym-app-dffp.onrender.com/send/mail",
+        
         {
           name,
           email,
