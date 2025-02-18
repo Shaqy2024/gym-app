@@ -8,6 +8,7 @@ const router = express.Router();
 
 config({ path: "./config.env" });
 
+<<<<<<< HEAD
 app.use(
   cors({
     origin: [process.env.FRONTEND_URL],
@@ -15,6 +16,15 @@ app.use(
     credentials: true,
   })
 );
+=======
+app.use(cors(
+  cors({
+    origin:"https://gym-app-i3sc.vercel.app",
+    methods: ["POST"],
+   credentials: true,
+  })
+));
+>>>>>>> 104ce7f0c0b93f2f574a8229a408d4e393f87974
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
