@@ -2,6 +2,7 @@ import React from "react";
 
 const Hero = () => {
   return (
+    <>
     <section className="hero">
       <div className="content">
         <div className="title">
@@ -19,6 +20,14 @@ const Hero = () => {
         </div>
       </div>
     </section>
+
+<div class="fixes-bottom right-100 p-3" style={{ xIndex:'6',left:'initial', position:'fixed', bottom:'15px', right:'15px'}}>  
+<a href = "https://wa.me/917303909682?text=hello how can help you ?" target="_blank">
+<img src="https://static.cdnlogo.com/logos/w/29/whatsapp-icon.svg" width={60}/>
+</a>
+</div>
+    
+</>
   );
 };
 

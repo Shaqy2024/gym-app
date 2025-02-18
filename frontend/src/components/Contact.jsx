@@ -1,45 +1,49 @@
-import axios from "axios";
+// import axios from "axios";
 import React, { useState } from "react";
 import { ClipLoader } from "react-spinners";
 import { toast } from "react-toastify";
 
+import * as emailjs from "emailjs-com"; 
 const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [message1, setMessage1] = useState("");
+   const [loading, setLoading] = useState(false);
 
-  const sendMail = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
+   const sendMail = async (e) => {
+     e.preventDefault();
+     setLoading(true);
+     try {
       const { data } = await axios.post(
         "https://gym-app-dffp.onrender.com/send/mail",
         
-        {
-          name,
-          email,
-          message,
-        },
-        {
-          withCredentials: false,
-          headers: { "Content-Type": "application/json" },
-        }
-      );
-      setName("");
-      setEmail("");
-      setMessage("");
-      toast.success(data.message);
-      setLoading(false);
-    } catch (error) {
-      setLoading(false);
-      toast.error(error.response.data.message);
-    }
-  };
+         {
+           name,
+           email,
+           message,
+         },
+         {
+           withCredentials: true,
+         headers: { "Content-Type": "application/json" },
+         }
+       );
+       setName("");
+       setEmail("");
+       setMessage("");
+       toast.success(data.message);
+       setLoading(false);
+     } catch (error) {
+       setLoading(false);
+       toast.error(error.response.data.message);
+     }
+   };
+
+
+
 
   return (
     <section className="contact">
-      <form onSubmit={sendMail}>
+      <form className="sakib">
         <h1>CONTACT US</h1>
         <div>
           <label>Name</label>
@@ -61,13 +65,14 @@ const Contact = () => {
           <label>Message</label>
           <input
             type="text"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
+            value={message1}
+            onChange={(e) => setMessage1(e.target.value)}
           />
         </div>
         <button
-          type="submit"
-          disabled={loading}
+ 
+        
+       
           style={{
             display: "flex",
             justifyContent: "center",
@@ -75,9 +80,10 @@ const Contact = () => {
             gap: "15px",
           }}
         >
-          {loading && <ClipLoader size={20} color="white" />}
+          
           Send Message
         </button>
+        
       </form>
     </section>
   );
